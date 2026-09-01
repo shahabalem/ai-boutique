@@ -1,0 +1,48 @@
+%==============================================================================
+%  14-data-technology.tex — Data & Technology Foundations
+%==============================================================================
+\strategyPart{14 \textbar\ Data \& Technology}{Data and Technology Foundations}
+
+AI value is capped by data readiness and architecture. Poor data quality costs
+the average organization \textbf{\$12.9~million per year} [Gartner 2021] — the
+most direct quantification of the ``data trust deficit.''
+
+\section{Data readiness}
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.45}
+  \rowcolors{2}{inSnow}{white}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{3.0cm}}
+    \rowcolor{inNavy}
+    \hcell{Dimension} & \hcell{Low maturity} & \hcell{High maturity} & \hcell{KPI} \\
+    \textbf{Quality} & Inconsistent, incomplete & Continuously monitored & Error rate, completeness \\
+    \textbf{Access} & Siloed & Governed data products & Access latency \\
+    \textbf{Ownership} & Unclear & Enterprise-assigned & Owner per dataset \\
+    \textbf{Governance} & Informal & Automated lineage \& controls & Audit coverage \\
+  \end{tabular}
+\end{center}
+
+\section{AI architecture layers}
+
+\begin{itemize}
+  \item Data platforms and data products.
+  \item Model platforms and a \textbf{model gateway} (routing, cost control).
+  \item Retrieval systems (vector search, RAG with citation and access control).
+  \item API and tool integration (ERP, CRM, knowledge bases, ticketing).
+  \item Identity and access management, orchestration, monitoring, security.
+  \item Human-approval systems and audit logging.
+\end{itemize}
+
+\section{Model strategy}
+
+Compare commercial foundation models, open-source models, small language
+models, domain models and classical ML across \textbf{accuracy, cost, latency,
+privacy, reliability, explainability and vendor dependence}. No single option
+wins; the portfolio matters.
+
+\section{Multi-agent integration}
+
+For agentic systems, evaluate: agent registry and capability discovery, task
+routing, message formats, shared context, \textbf{agent identity and
+inter-agent authentication}, permission boundaries, result validation and
+human escalation [MCP, LangGraph, AutoGen, CrewAI documentation].

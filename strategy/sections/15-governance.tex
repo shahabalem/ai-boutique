@@ -1,0 +1,56 @@
+%==============================================================================
+%  15-governance.tex — AI Governance, Ethics & Regulation
+%==============================================================================
+\strategyPart{15 \textbar\ Governance}{Governance, Ethics and Regulation}
+
+Governance is the system that lets the organization trust its own AI. The
+Stanford AI Index documents that governance frameworks are falling behind AI
+capability — the ``governance gap'' [Stanford AI Index 2025/2026].
+
+\section{Responsible AI principles}
+
+Fairness, transparency, explainability, privacy, security, accountability,
+robustness and human oversight [NIST AI RMF; OECD AI Principles; UNESCO;
+ISO/IEC 42001; EU AI Act].
+
+\section{AI risk taxonomy}
+
+\begin{itemize}
+  \item Hallucination, bias, data leakage, prompt injection.
+  \item Model drift, cybersecurity, unauthorized actions.
+  \item Poor explainability, overreliance, legal liability, vendor
+        concentration.
+\end{itemize}
+
+\section{Governance structure and roles}
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.45}
+  \rowcolors{2}{inSnow}{white}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{9.0cm}}
+    \rowcolor{inNavy}
+    \hcell{Role} & \hcell{Responsibility} \\
+    \textbf{Board of directors} & AI strategy oversight and risk appetite \\
+    \textbf{Chief AI Officer} & Enterprise AI strategy and portfolio \\
+    \textbf{AI risk committee} & Risk classification, incident response \\
+    \textbf{Legal \& compliance} & EU AI Act, GDPR, IP, employment law \\
+    \textbf{Product / model owner} & Value, risk and lifecycle \\
+    \textbf{Data owner} & Data quality and access \\
+    \textbf{Human approver} & Final decision authority and audit trail \\
+  \end{tabular}
+\end{center}
+
+\section{EU regulatory context}
+
+For EU-based organizations: the \textbf{EU AI Act} classifies AI by risk
+(prohibited, high-risk, transparency-related, minimal), \textbf{GDPR} governs
+personal data, and sector regulation and cybersecurity rules apply. These are
+design inputs, not afterthoughts: retrofitting governance is the most common
+cause of the 30\% post-proof-of-concept abandonment [Gartner 2023].
+
+\section{Agentic AI governance}
+
+Autonomous agents require additional controls: explicit tool permissions,
+maximum transaction limits, approval requirements, sandboxed execution,
+immutable audit logs, agent identity, emergency shutdown, continuous
+monitoring and separation of duties [NIST AI RMF; enterprise agent platforms].

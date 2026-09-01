@@ -1,0 +1,51 @@
+%==============================================================================
+%  06-transformation-models.tex — Organizational AI Transformation Models
+%==============================================================================
+\strategyPart{06 \textbar\ Transformation Models}{Models for Becoming an AI-Based Organization}
+
+Six institutional models frame how organizations approach AI transformation.
+They differ in emphasis but converge on the same conclusion: transformation is
+a portfolio of strategy, work redesign, capability and governance — not a
+technology procurement.
+
+\section{Comparison of the major frameworks}
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.45}
+  \rowcolors{2}{inSnow}{white}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{4.9cm}>{\raggedright\arraybackslash}p{4.9cm}}
+    \rowcolor{inNavy}
+    \hcell{Model} & \hcell{Core structure} & \hcell{Key evidence base} \\
+    \textbf{McKinsey} & AI enablement $\rightarrow$ workflow automation $\rightarrow$ operating-model reinvention & State of AI: 88\% adopt, 7\% fully scaled [McKinsey 2025]. \\
+    \textbf{WEF / Accenture} & Five transformation areas: customer experience, operations, R\&D, strategy, talent & Insights from 450+ executives [WEF--Accenture 2026]. \\
+    \textbf{Deloitte} & Maturity across strategy, leadership, technology, data, talent, governance, value, adoption & 3,235 leaders across 24 countries [Deloitte 2026]. \\
+    \textbf{Stanford} & Macro evidence: investment, performance, adoption, labor, incidents, productivity & AI Index annual reports [Stanford AI Index 2025]. \\
+    \textbf{NIST} & Govern $\rightarrow$ Map $\rightarrow$ Measure $\rightarrow$ Manage & AI Risk Management Framework 1.0 [NIST]. \\
+    \textbf{OECD} & Human-centered, trustworthy AI principles & OECD AI Principles [OECD]. \\
+  \end{tabular}
+\end{center}
+
+\section{Integrated AI transformation maturity model}
+
+\begin{center}
+  \begin{tikzpicture}
+    \node[fill=inNavy!6!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m1) at (0,0) {L1 · Unstructured experimentation};
+    \node[fill=inNavy!5!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m2) at (0,0.85) {L2 · Controlled adoption};
+    \node[fill=inNavy!4!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m3) at (0,1.7) {L3 · Functional integration};
+    \node[fill=inNavy!3!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m4) at (0,2.55) {L4 · Workflow transformation};
+    \node[fill=inNavy!2!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m5) at (0,3.4) {L5 · Enterprise orchestration};
+    \node[fill=inNavy,     text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m6) at (0,4.25) {L6 · AI-native operation};
+    \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,0) {Employees use unauthorized tools.};
+    \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,0.85) {Approved tools and basic policies exist.};
+    \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,1.7) {AI supports individual departments.};
+    \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,2.55) {End-to-end processes are redesigned.};
+    \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,3.4) {AI systems and agents coordinate across functions.};
+    \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,4.25) {The organization continuously adapts around AI.};
+  \end{tikzpicture}
+\end{center}
+
+Each level is evaluated across ten dimensions: \textbf{strategy, leadership,
+data, technology, processes, talent, culture, governance, measurement and
+customer value}. The model deliberately mirrors the ladder in Part~07 and the
+readiness stocks in Part~11, so the same organization can be diagnosed from
+three complementary angles.

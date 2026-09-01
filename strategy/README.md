@@ -30,14 +30,28 @@ strategy/
 ├── sections/                # One file per document part (content only)
 │   ├── 00-cover.tex
 │   ├── 01-executive-summary.tex
-│   ├── 02-ai-paradigm.tex           # Section 1 — The AI Paradigm
-│   ├── 03-value-ladder.tex          # Section 2 — Value Creation Ladder
-│   ├── 04-application-categories.tex# Section 3 — Application Categories
-│   ├── 05-organizational-readiness.tex # Section 4 — Organizational Readiness
-│   ├── 06-why-ai-fails.tex          # Section 5 — Why AI Fails
-│   ├── 07-reinvention-roadmap.tex   # Section 6 — Reinvention Roadmap
-│   ├── 08-case-studies.tex          # Section 7 — Case Studies
-│   └── 09-conclusion.tex            # Section 8 — Conclusion & Call to Action
+│   ├── 02-introduction.tex            # Research scope, problem, questions
+│   ├── 03-definitions.tex             # Concepts + adoption→transformation table
+│   ├── 04-theoretical-foundations.tex # 5 theories
+│   ├── 05-ai-paradigm.tex             # Digitalization → AI-enabled reinvention
+│   ├── 06-transformation-models.tex   # McKinsey/WEF/Deloitte/Stanford/NIST + maturity model
+│   ├── 07-value-ladder.tex            # Assist → Automate → Agentic → Redesign
+│   ├── 08-application-categories.tex  # AI technology stack & problem categories
+│   ├── 09-ai-by-function.tex          # Performance change by work type
+│   ├── 10-operating-models.tex        # CoE / federated / hybrid / product / agent
+│   ├── 11-organizational-readiness.tex# Human/Data/Organizational "stocks"
+│   ├── 12-work-transformation.tex     # Workflow redesign + human-in-the-loop
+│   ├── 13-people-skills-culture.tex   # Workforce & skill-gap table
+│   ├── 14-data-technology.tex         # Data readiness & AI architecture
+│   ├── 15-governance.tex              # NIST / OECD / EU AI Act / agentic controls
+│   ├── 16-why-ai-fails.tex            # Failure modes + statistics
+│   ├── 17-case-studies.tex            # Success & failure stories
+│   ├── 18-measurement.tex             # ROI, productivity, adoption metrics
+│   ├── 19-roadmap.tex                 # Kotter 8 steps → 7-phase roadmap
+│   ├── 20-comparative-analysis.tex    # Comparative matrix (traditional→AI-native)
+│   ├── 21-methodology.tex             # Evidence hierarchy & contributions
+│   ├── 22-conclusion.tex              # Executive conclusion & call to action
+│   └── 23-appendix-titles.tex         # Recommended additional titles & sources
 ├── fonts/                   # Fira Sans (body), Oswald (headings)
 └── images/                  # Images
 ```
