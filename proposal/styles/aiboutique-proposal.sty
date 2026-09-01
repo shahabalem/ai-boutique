@@ -1,0 +1,262 @@
+%==============================================================================
+%  aiboutique-proposal.sty
+%------------------------------------------------------------------------------
+%  AI Boutique — Proposal document format (graphical, catalogue style)
+%
+%  Design reference : INSEEC MSc & MBA brochure (plaquette)
+%      https://issuu.com/inseec/docs/plaquette-inseec-msc-mba
+%      -> deep navy (#002D74) primary colour, light-blue (#9CBDFF) accents,
+%         full-width bands, cards and flat banners.
+%  Structure model  : yLaTeX (https://github.com/HarveySheppard/yLaTeX)
+%
+%  Load with:
+%      \documentclass[11pt]{article}
+%      \usepackage{styles/aiboutique-proposal}
+%
+%  Compile with XeLaTeX (fontspec). Each proposal part is a separate file in
+%  sections/ and is integrated by the main document.
+%==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/aiboutique-proposal}[2026/09/01 v1.0 AI Boutique proposal format (INSEEC-inspired catalogue style)]
+
+%-----------------------------------------------------------------------------
+%  1. Required packages
+%-----------------------------------------------------------------------------
+\RequirePackage[a4paper,top=2.2cm,bottom=2.4cm,left=2cm,right=2cm,headheight=14pt]{geometry}
+\RequirePackage{fontspec}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{colortbl}
+\RequirePackage{amssymb}
+\RequirePackage{fontawesome5}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{etoolbox}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+\RequirePackage{setspace}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,positioning}
+
+%-----------------------------------------------------------------------------
+%  2. Colour palette — INSEEC MSc & MBA brochure
+%     (extracted from inseec.com / the plaquette visual identity)
+%-----------------------------------------------------------------------------
+\providecolor{inNavy}{RGB}{0,45,116}          % #002D74  primary navy
+\providecolor{inHover}{RGB}{0,74,148}         % #004A94  hover navy
+\providecolor{inBright}{RGB}{0,98,225}        % #0062E1  bright accent blue
+\providecolor{inLight}{RGB}{155,189,255}      % #9CBDFF  light accent blue
+\providecolor{inPale}{RGB}{219,235,255}       % #DBEBFF  pale container blue
+\providecolor{inSnow}{RGB}{240,247,255}       % #F0F7FF  snow white-blue
+\providecolor{inGrey}{RGB}{71,71,71}          % #474747  body grey
+\providecolor{inDark}{RGB}{45,45,45}          % #2D2D2D  near-black text
+
+\colorlet{mainColor}{inNavy}
+\colorlet{secondColor}{inBright}
+\providecolor{lightGrey}{RGB}{240,240,240}
+\providecolor{middleGrey}{RGB}{191,191,191}
+\providecolor{darkGrey}{RGB}{140,140,140}
+
+%-----------------------------------------------------------------------------
+%  3. Fonts — Fira Sans (body) + Oswald (display headings)
+%-----------------------------------------------------------------------------
+% Font directory relative to the main document (compiled from proposal/).
+% Override before loading the format:  \newcommand{\aiboutiquefontpath}{...}
+\newcommand{\aiboutiquefontpath}{./fonts/}
+
+\setmainfont[Path=\aiboutiquefontpath,
+  UprightFont=FiraSans-Book.otf,
+  BoldFont=FiraSans-Bold.otf,
+  ItalicFont=FiraSans-BookItalic.otf,
+  BoldItalicFont=FiraSans-BoldItalic.otf,
+  Scale=0.95]{FiraSans-Book.otf}
+\setsansfont[Path=\aiboutiquefontpath,
+  UprightFont=FiraSans-Book.otf,
+  BoldFont=FiraSans-Bold.otf,
+  ItalicFont=FiraSans-BookItalic.otf,
+  BoldItalicFont=FiraSans-BoldItalic.otf,
+  Scale=0.95]{FiraSans-Book.otf}
+\newfontfamily\headingfont[Path=\aiboutiquefontpath,
+  UprightFont=Oswald-Regular.otf,
+  BoldFont=Oswald-Bold.otf,
+  ItalicFont=Oswald-Regular.otf,
+  BoldItalicFont=Oswald-Bold.otf]{Oswald-Regular.otf}
+\newfontfamily\lightfont[Path=\aiboutiquefontpath,
+  UprightFont=FiraSans-Light.otf,
+  BoldFont=FiraSans-Bold.otf]{FiraSans-Light.otf}
+\newfontfamily\mediumfont[Path=\aiboutiquefontpath,
+  UprightFont=FiraSans-Medium.otf,
+  BoldFont=FiraSans-Bold.otf]{FiraSans-Medium.otf}
+\newfontfamily\oswaldlightfont[Path=\aiboutiquefontpath,
+  UprightFont=Oswald-Light.otf,
+  BoldFont=Oswald-Bold.otf]{Oswald-Light.otf}
+
+%-----------------------------------------------------------------------------
+%  4. Page layout & paragraph style
+%-----------------------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\linespread{1.08}
+\setlength{\arrayrulewidth}{0.6pt}
+\renewcommand{\arraystretch}{1.25}
+
+%-----------------------------------------------------------------------------
+%  5. Headings — navy Oswald with a pale rule + bright accent
+%-----------------------------------------------------------------------------
+\titleformat{\section}
+  {\headingfont\Large\bfseries\color{inNavy}}
+  {}
+  {0pt}
+  {}
+  [{\vspace{0.45em}\color{inPale}\titlerule[1.1pt]\vspace{-2.2pt}{\color{inBright}\rule{0.22\linewidth}{1.1pt}}}]
+\titlespacing*{\section}{0pt}{2.2em}{1.1em}
+
+\titleformat{\subsection}
+  {\headingfont\normalsize\bfseries\color{inHover}}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\subsection}{0pt}{1.5em}{0.5em}
+
+%-----------------------------------------------------------------------------
+%  6. Lists — flat INSEEC triangle markers
+%-----------------------------------------------------------------------------
+\setlist[itemize]{label={\textcolor{inNavy}{$\blacktriangleright$}},leftmargin=1.5em,itemsep=0.35em,topsep=0.4em}
+\setlist[enumerate]{label={\textcolor{inNavy}{\arabic*.}},leftmargin=1.7em,itemsep=0.35em,topsep=0.4em}
+
+%-----------------------------------------------------------------------------
+%  7. Header & footer — brand, part title, page number, pale rule
+%-----------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\bfseries\color{inGrey}AI Boutique}
+\fancyhead[R]{\small\color{inGrey}\nouppercase{\leftmark}}
+\fancyfoot[L]{\small\color{inGrey}AI Boutique \textbar\ Proposal}
+\fancyfoot[R]{\small\color{inGrey}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.6pt}
+\renewcommand{\footrule}{\color{inPale}\hrule width \headwidth height 1.1pt}
+
+% Part pages: no header (the navy band lives at the top), footer only.
+\fancypagestyle{partpage}{%
+  \fancyhf{}
+  \fancyfoot[L]{\small\color{inGrey}AI Boutique \textbar\ Proposal}
+  \fancyfoot[R]{\small\color{inGrey}\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+%-----------------------------------------------------------------------------
+%  8. Hyperlinks
+%-----------------------------------------------------------------------------
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=inNavy,urlcolor=inBright,citecolor=inNavy}
+
+%-----------------------------------------------------------------------------
+%  9. Metadata helpers
+%-----------------------------------------------------------------------------
+\makeatletter
+\newcommand{\subtitle}[1]{\def\@subtitle{#1}}
+\def\@subtitle{}
+\newcommand{\proposalkicker}[1]{\def\@proposalkicker{#1}}
+\def\@proposalkicker{Artificial Intelligence \& Data Science}
+
+%-----------------------------------------------------------------------------
+%  10. \proposalpart{kicker}{title} — full-width navy part opener
+%      Usage: \proposalpart{01 · Executive Summary}{The Opportunity}
+%-----------------------------------------------------------------------------
+\newcommand{\proposalpart}[2]{%
+  \clearpage
+  \thispagestyle{partpage}
+  \markboth{#2}{}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[inNavy] (current page.north west) rectangle ([yshift=-3.4cm]current page.north east);
+    \fill[inBright] ([yshift=-3.4cm]current page.north west) rectangle ([yshift=-3.52cm]current page.north east);
+    \node[anchor=west,font=\headingfont\fontsize{12}{14}\selectfont,color=inLight]
+      at ([xshift=2cm,yshift=-1.15cm]current page.north west) {\MakeUppercase{#1}};
+    \node[anchor=west,font=\headingfont\fontsize{27}{31}\selectfont\bfseries,color=white]
+      at ([xshift=2cm,yshift=-2.05cm]current page.north west) {#2};
+  \end{tikzpicture}
+  \vspace*{1.75cm}
+}
+
+%-----------------------------------------------------------------------------
+%  11. \proposalCover — full-page catalogue-style cover
+%      Uses \title, \subtitle, \proposalkicker, \author, \date.
+%-----------------------------------------------------------------------------
+\newcommand{\proposalCover}{%
+  \clearpage
+  \thispagestyle{empty}
+  \begin{tikzpicture}[remember picture,overlay]
+    % Top navy panel
+    \fill[inNavy] (current page.north west) rectangle ([yshift=-9cm]current page.north east);
+    % Brand mark + wordmark (top-right)
+    \fill[inBright] ([xshift=-2cm,yshift=-1.5cm]current page.north east) ++(-0.55cm,-0.55cm) rectangle ++(1.1cm,1.1cm);
+    \node[white,font=\Large\bfseries] at ([xshift=-2cm,yshift=-1.5cm]current page.north east) {AI};
+    \node[white,font=\headingfont\LARGE\bfseries] at ([xshift=-3.4cm,yshift=-1.5cm]current page.north east) {AI Boutique};
+    % Kicker
+    \node[anchor=west,font=\headingfont\fontsize{13}{15}\selectfont,color=inLight]
+      at ([xshift=2cm,yshift=-3.7cm]current page.north west) {\MakeUppercase{\@proposalkicker}};
+    % Title
+    \node[anchor=west,font=\headingfont\fontsize{40}{44}\selectfont\bfseries,color=white,align=left,
+      text width=\dimexpr\paperwidth-4cm\relax]
+      at ([xshift=2cm,yshift=-4.9cm]current page.north west) {\@title};
+    % Accent rule
+    \fill[inBright] ([xshift=2cm,yshift=-6.9cm]current page.north west) rectangle ++(3.2cm,0.16cm);
+    % Subtitle
+    \node[anchor=west,font=\fontsize{15}{20}\selectfont,color=inLight,align=left,
+      text width=\dimexpr\paperwidth-4cm\relax]
+      at ([xshift=2cm,yshift=-7.5cm]current page.north west) {\@subtitle};
+    % Bottom panel
+    \fill[inSnow] (current page.south west) rectangle ([yshift=3.4cm]current page.south east);
+    \fill[inBright] (current page.south west) rectangle ([yshift=0.35cm]current page.south east);
+    \node[anchor=west,font=\fontsize{11}{14}\selectfont,color=inGrey]
+      at ([xshift=2cm,yshift=2.3cm]current page.south west) {Prepared by \textbf{\@author} \textbar\ \@date};
+  \end{tikzpicture}
+  \vspace*{\fill}
+  \clearpage
+}
+
+%-----------------------------------------------------------------------------
+%  12. \infobox{title}{body} — light callout box with a navy heading
+%-----------------------------------------------------------------------------
+\newcommand{\infobox}[2]{%
+  \par\noindent
+  \begin{tikzpicture}
+    \node[
+      fill=inSnow,draw=inPale,line width=0.8pt,rounded corners=2pt,
+      inner sep=5mm,
+      text width=\dimexpr\linewidth-1cm-1.6pt\relax,
+      align=left
+    ] {%
+      {\headingfont\large\bfseries\color{inNavy}#1}\\[0.45em]
+      {\color{inDark}#2}%
+    };
+  \end{tikzpicture}\par
+  \vspace{0.7em}
+}
+
+%-----------------------------------------------------------------------------
+%  13. \stat{number}{label} — big-number statistic with an accent rule
+%-----------------------------------------------------------------------------
+\newcommand{\stat}[2]{%
+  \begin{tikzpicture}
+    \node[inner sep=0pt] {%
+      \begin{minipage}{3.4cm}
+        \centering
+        {\headingfont\fontsize{30}{34}\selectfont\bfseries\color{inNavy}#1}\\[0.15em]
+        {\color{inBright}\rule{1.3cm}{1.6pt}}\\[0.35em]
+        {\fontsize{10}{12}\selectfont\color{inGrey}#2}
+      \end{minipage}%
+    };
+  \end{tikzpicture}
+}
+
+%-----------------------------------------------------------------------------
+%  14. \hcell{text} — white bold table header cell
+%-----------------------------------------------------------------------------
+\newcommand{\hcell}[1]{\textcolor{white}{\bfseries#1}}
+
+\makeatother
+\endinput

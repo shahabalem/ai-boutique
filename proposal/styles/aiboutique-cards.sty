@@ -1,0 +1,76 @@
+%==============================================================================
+%  aiboutique-cards.sty
+%------------------------------------------------------------------------------
+%  Flat cards for AI Boutique — adapted from yCards by Harvey Sheppard
+%  (yLaTeX, LPPL licence). Great for presenting services / offers side by side.
+%
+%  Usage:
+%      \aiCard[<pgfkeys>]{
+%          \aiCardTitle{Title}
+%          Card body ...
+%      }
+%
+%  Keys: width, padding, background color, line color, line width,
+%        rounded corners, title color, text color, align.
+%==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/aiboutique-cards}[2026/09/01 v1.0 Flat cards for AI Boutique (adapted from yCards, LPPL)]
+
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{pgfkeys}
+\RequirePackage{xparse}
+\usetikzlibrary{shadows.blur}
+
+% INSEEC palette (safe redefinition — the format already provides these colours)
+\providecolor{inNavy}{RGB}{0,45,116}
+\providecolor{inBright}{RGB}{0,98,225}
+\providecolor{inPale}{RGB}{219,235,255}
+\providecolor{inSnow}{RGB}{240,247,255}
+\providecolor{inDark}{RGB}{45,45,45}
+
+%-----------------------------------------------------------------------------
+%  Card configuration
+%-----------------------------------------------------------------------------
+\pgfkeys{
+  /aicards/.cd,
+  width/.initial = \linewidth,
+  padding/.initial = 4mm,
+  background color/.initial = white,
+  line color/.initial = inPale,
+  line width/.initial = 0.8pt,
+  rounded corners/.initial = 3pt,
+  title color/.initial = inNavy,
+  text color/.initial = inDark,
+  align/.initial = left,
+}
+
+%-----------------------------------------------------------------------------
+%  \aiCardTitle{<text>} — card header in navy bold
+%-----------------------------------------------------------------------------
+\newcommand{\aiCardTitle}[1]{{\large\bfseries\color{inNavy}#1}}
+
+%-----------------------------------------------------------------------------
+%  \aiCard[<keys>]{<content>} — rounded card with a subtle shadow
+%-----------------------------------------------------------------------------
+\DeclareDocumentCommand{\aiCard}{o m}{%
+  \begingroup
+  \IfValueT{#1}{\pgfkeys{/aicards/.cd,#1}}%
+  \begin{tikzpicture}[inner sep=0mm, outer sep=0mm]
+    \node[
+      rectangle,
+      draw=\pgfkeysvalueof{/aicards/line color},
+      line width=\pgfkeysvalueof{/aicards/line width},
+      fill=\pgfkeysvalueof{/aicards/background color},
+      rounded corners=\pgfkeysvalueof{/aicards/rounded corners},
+      inner sep=\pgfkeysvalueof{/aicards/padding},
+      text width=\dimexpr\pgfkeysvalueof{/aicards/width}-\pgfkeysvalueof{/aicards/padding}-\pgfkeysvalueof{/aicards/padding}-\pgfkeysvalueof{/aicards/line width}\relax,
+      align=\pgfkeysvalueof{/aicards/align},
+      text=\pgfkeysvalueof{/aicards/text color},
+      blur shadow={shadow xshift=0mm, shadow yshift=-0.6mm, shadow opacity=25, shadow blur radius=1.2mm},
+    ] {#2};
+  \end{tikzpicture}%
+  \endgroup
+}
+
+\endinput

@@ -1,0 +1,110 @@
+%==============================================================================
+%  aiboutique-banner.sty
+%------------------------------------------------------------------------------
+%  Flat banners for AI Boutique — adapted from yBanner by Harvey Sheppard
+%  and Yves Zumbach (yLaTeX, LPPL licence).
+%
+%  Usage (any document class, e.g. the proposal format):
+%      \yBanner[<pgfkeys>]{<text>}
+%  e.g.  \yBanner[color=inBright]{A key message}
+%
+%  Keys: color, text color, inner sep, additional horizontal space, align,
+%        font, endings/vertical offset, endings/inner width,
+%        endings/outer width, endings/triangle offset.
+%==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/aiboutique-banner}[2026/09/01 v1.0 Flat banners for AI Boutique (adapted from yBanner, LPPL)]
+
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{pgfkeys}
+\RequirePackage{xparse}
+\usetikzlibrary{calc}
+
+% INSEEC palette (safe redefinition — the theme already provides these colours)
+\providecolor{inNavy}{RGB}{0,45,116}
+\providecolor{inBright}{RGB}{0,98,225}
+\providecolor{inLight}{RGB}{155,189,255}
+
+%-----------------------------------------------------------------------------
+%  Banner configuration
+%-----------------------------------------------------------------------------
+\pgfkeys{
+  /ybanner/.cd,
+  color/.initial = inNavy,
+  text color/.initial = white,
+  inner sep/.initial = 3mm,
+  additional horizontal space/.initial = 3mm,
+  align/.initial = center,
+  font/.initial = {},
+}
+\pgfkeys{
+  /ybanner/.cd,
+  shadowed color/.initial = \pgfkeysvalueof{/ybanner/color}!75!black,
+}
+\pgfkeys{
+  /ybanner/endings/.cd,
+  vertical offset/.initial = 3mm,
+  inner width/.initial = 8mm,
+  outer width/.initial = 1cm,
+  triangle offset/.initial = 3mm,
+}
+
+%-----------------------------------------------------------------------------
+%  \yBanner[<keys>]{<text>}  — flat banner with sharp angled endings
+%-----------------------------------------------------------------------------
+\DeclareDocumentCommand{\yBanner}{o m}{%
+  \begingroup
+  \IfValueT{#1}{\pgfkeys{/ybanner/.cd,#1}}%
+  \begin{tikzpicture}[inner sep=0mm, outer sep=0mm]
+    \node[
+      rectangle,
+      fill=\pgfkeysvalueof{/ybanner/color},
+      inner sep=\pgfkeysvalueof{/ybanner/inner sep},
+      align=\pgfkeysvalueof{/ybanner/align},
+      text=\pgfkeysvalueof{/ybanner/text color},
+      font=\pgfkeysvalueof{/ybanner/font},
+    ] (text) {\hspace*{\pgfkeysvalueof{/ybanner/additional horizontal space}}#2\hspace*{\pgfkeysvalueof{/ybanner/additional horizontal space}}};
+    % Left triangle
+    \coordinate[xshift=\pgfkeysvalueof{/ybanner/endings/inner width}] (leftTriangleInnerTop) at (text.south west);
+    \coordinate[xshift=\pgfkeysvalueof{/ybanner/endings/inner width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (leftTriangleInnerBottom) at (text.south west);
+    \path[fill=\pgfkeysvalueof{/ybanner/shadowed color}] (text.south west) -- (leftTriangleInnerTop) -- (leftTriangleInnerBottom) -- cycle;
+    % Right triangle
+    \coordinate[xshift=-\pgfkeysvalueof{/ybanner/endings/inner width}] (rightTriangleInnerTop) at (text.south east);
+    \coordinate[xshift=-\pgfkeysvalueof{/ybanner/endings/inner width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (rightTriangleInnerBottom) at (text.south east);
+    \path[fill=\pgfkeysvalueof{/ybanner/shadowed color}] (text.south east) -- (rightTriangleInnerTop) -- (rightTriangleInnerBottom) -- cycle;
+    % Left banner ending
+    \coordinate[xshift=-\pgfkeysvalueof{/ybanner/endings/outer width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (leftEndingTopLeft) at (text.north west);
+    \coordinate[xshift=\pgfkeysvalueof{/ybanner/endings/inner width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (leftEndingTopRight) at (text.north west);
+    \coordinate[xshift=-\pgfkeysvalueof{/ybanner/endings/outer width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (leftEndingBottomLeft) at (text.south west);
+    \path let
+      \p1=(leftEndingTopLeft),
+      \p2=(leftEndingBottomLeft),
+      \n1={\y1+\y2} in
+      coordinate[xshift=\pgfkeysvalueof{/ybanner/endings/triangle offset}] (leftEndingMiddleLeft) at (\x1,\n1/2);
+    \path[fill=\pgfkeysvalueof{/ybanner/color}]
+      (leftEndingTopLeft) --
+      (leftEndingTopRight) --
+      (leftTriangleInnerBottom) --
+      (leftEndingBottomLeft) --
+      (leftEndingMiddleLeft) -- cycle;
+    % Right banner ending
+    \coordinate[xshift=\pgfkeysvalueof{/ybanner/endings/outer width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (rightEndingTopRight) at (text.north east);
+    \coordinate[xshift=-\pgfkeysvalueof{/ybanner/endings/inner width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (rightEndingTopLeft) at (text.north east);
+    \coordinate[xshift=\pgfkeysvalueof{/ybanner/endings/outer width}, yshift=-\pgfkeysvalueof{/ybanner/endings/vertical offset}] (rightEndingBottomRight) at (text.south east);
+    \path let
+      \p1=(rightEndingTopRight),
+      \p2=(rightEndingBottomRight),
+      \n1={\y1+\y2} in
+      coordinate[xshift=-\pgfkeysvalueof{/ybanner/endings/triangle offset}] (rightEndingMiddleRight) at (\x1,\n1/2);
+    \path[fill=\pgfkeysvalueof{/ybanner/color}]
+      (rightEndingTopLeft) --
+      (rightEndingTopRight) --
+      (rightEndingMiddleRight) --
+      (rightEndingBottomRight) --
+      (rightTriangleInnerBottom) -- cycle;
+  \end{tikzpicture}%
+  \endgroup
+}
+
+\endinput

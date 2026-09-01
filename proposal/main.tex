@@ -1,0 +1,47 @@
+%==============================================================================
+%  main.tex — AI Boutique proposal (root document)
+%------------------------------------------------------------------------------
+%  Compile with XeLaTeX from the proposal/ directory:
+%      latexmk -xelatex main.tex          (recommended — run twice for overlays)
+%
+%  Structure:
+%      styles/aiboutique-proposal.sty     -> catalogue-style format
+%      styles/aiboutique-banner.sty       -> flat banners (\yBanner)
+%      styles/aiboutique-cards.sty        -> flat cards    (\aiCard)
+%      sections/*.tex                     -> one file per proposal part
+%      fonts/                             -> Fira Sans + Oswald
+%==============================================================================
+\documentclass[11pt]{article}
+
+% ---- Style files (separated from the document content) ----
+\usepackage{styles/aiboutique-proposal}
+\usepackage{styles/aiboutique-banner}
+\usepackage{styles/aiboutique-cards}
+
+% ---- Proposal metadata ----
+\title{Artificial Intelligence\\Services}
+\subtitle{A proposal to unlock measurable value from your data}
+\proposalkicker{Proposal \textbar\ Artificial Intelligence \& Data Science}
+\author{AI Boutique}
+\date{\today}
+
+\hypersetup{
+  pdftitle={AI Boutique — Proposal},
+  pdfauthor={AI Boutique},
+  pdfsubject={Artificial Intelligence services proposal},
+}
+
+\begin{document}
+
+% ===== One separate file per proposal part, integrated here =====
+\input{sections/00-cover.tex}                  % Cover
+\input{sections/01-executive-summary.tex}      % Executive Summary
+\input{sections/02-company-profile.tex}        % Company Profile
+\input{sections/03-services.tex}               % Services
+\input{sections/04-methodology.tex}            % Methodology
+\input{sections/05-timeline.tex}               % Deliverables & Timeline
+\input{sections/06-team.tex}                   % Team
+\input{sections/07-pricing.tex}                % Investment
+\input{sections/08-contact.tex}                % Contact
+
+\end{document}
