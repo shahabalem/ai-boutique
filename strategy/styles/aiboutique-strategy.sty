@@ -24,6 +24,7 @@
 %-----------------------------------------------------------------------------
 \RequirePackage[a4paper,top=2.2cm,bottom=2.4cm,left=2cm,right=2cm,headheight=14pt]{geometry}
 \RequirePackage{fontspec}
+\RequirePackage{microtype}
 \RequirePackage{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{booktabs}
@@ -97,11 +98,24 @@
 %  4. Page layout & paragraph style
 %-----------------------------------------------------------------------------
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.65em}
-\linespread{1.08}
-\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{0.6em}
+\linespread{1.05}
+\setlength{\emergencystretch}{3em}
+\hbadness=2500
 \setlength{\arrayrulewidth}{0.6pt}
 \renewcommand{\arraystretch}{1.25}
+\raggedbottom
+
+% Two-column separation: a pale vertical rule between columns (whitepaper look)
+\setlength{\columnsep}{0.7cm}
+\setlength{\columnseprule}{0.4pt}
+% Color the column separator rule (kernel draws it in \normalcolor)
+\makeatletter
+\patchcmd{\@outputdblcol}
+  {\normalcolor\vrule \@width\columnseprule}
+  {\color{inPale}\vrule \@width\columnseprule}
+  {}{}
+\makeatother
 
 %-----------------------------------------------------------------------------
 %  5. Headings — navy Oswald with a pale rule + bright accent
@@ -112,20 +126,21 @@
   {0pt}
   {}
   [{\vspace{0.45em}\color{inPale}\titlerule[1.1pt]\vspace{-2.2pt}{\color{inBright}\rule{0.22\linewidth}{1.1pt}}}]
-\titlespacing*{\section}{0pt}{2.2em}{1.1em}
+\titlespacing*{\section}{0pt}{1.8em}{0.9em}
 
 \titleformat{\subsection}
   {\headingfont\normalsize\bfseries\color{inHover}}
   {}
   {0pt}
   {}
-\titlespacing*{\subsection}{0pt}{1.5em}{0.5em}
+  [{\vspace{0.3em}\color{inLight}\titlerule[0.8pt]}]
+\titlespacing*{\subsection}{0pt}{1.2em}{0.4em}
 
 %-----------------------------------------------------------------------------
-%  6. Lists — flat INSEEC triangle markers
+%  6. Lists — flat INSEEC triangle markers (tightened for two columns)
 %-----------------------------------------------------------------------------
-\setlist[itemize]{label={\textcolor{inNavy}{$\blacktriangleright$}},leftmargin=1.5em,itemsep=0.35em,topsep=0.4em}
-\setlist[enumerate]{label={\textcolor{inNavy}{\arabic*.}},leftmargin=1.7em,itemsep=0.35em,topsep=0.4em}
+\setlist[itemize]{label={\textcolor{inNavy}{$\blacktriangleright$}},leftmargin=1.2em,itemsep=0.2em,topsep=0.3em,parsep=0.05em}
+\setlist[enumerate]{label={\textcolor{inNavy}{\arabic*.}},leftmargin=1.4em,itemsep=0.2em,topsep=0.3em,parsep=0.05em}
 
 %-----------------------------------------------------------------------------
 %  7. Header & footer — series label, part title, page number, pale rule
@@ -139,8 +154,9 @@
 \fancyhead[L]{\small\bfseries\color{inGrey}\serieslabeltext}
 \fancyhead[R]{\small\color{inGrey}\nouppercase{\leftmark}}
 \fancyfoot[L]{\small\color{inGrey}\serieslabeltext}
-\fancyfoot[R]{\small\color{inGrey}\thepage}
-\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\small\bfseries\color{inNavy}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{inPale}\hrule width \headwidth height 0.6pt}
 \renewcommand{\footrulewidth}{0.6pt}
 \renewcommand{\footrule}{\color{inPale}\hrule width \headwidth height 1.1pt}
 
@@ -148,7 +164,7 @@
 \fancypagestyle{partpage}{%
   \fancyhf{}
   \fancyfoot[L]{\small\color{inGrey}\serieslabeltext}
-  \fancyfoot[R]{\small\color{inGrey}\thepage}
+  \fancyfoot[R]{\small\bfseries\color{inNavy}\thepage}
   \renewcommand{\headrulewidth}{0pt}
 }
 
@@ -177,10 +193,12 @@
   \noindent
   \begin{tikzpicture}
     \node[fill=inNavy, text=white, font=\headingfont, inner xsep=0.5em, inner ysep=0.45em,
-          text width=\dimexpr\linewidth-1em-1.6pt\relax, align=left] {%
+          text width=\dimexpr\linewidth-1em-1.6pt\relax, align=left] (parthead) {%
       {\fontsize{8}{10}\selectfont\color{inLight}\MakeUppercase{#1}}\\[0.28em]
       {\fontsize{15}{17}\selectfont\bfseries #2}%
     };
+    % bright accent bar along the bottom of the navy heading
+    \fill[inBright] ([yshift=-1pt]parthead.south west) rectangle ([yshift=-2.6pt]parthead.south east);
   \end{tikzpicture}\par
   \addvspace{0.6em}
   \markboth{#2}{}%
@@ -223,7 +241,7 @@
 }
 
 %-----------------------------------------------------------------------------
-%  12. \infobox{title}{body} — light callout box with a navy heading
+%  12. \infobox{title}{body} — light callout box with a navy heading + accent bar
 %-----------------------------------------------------------------------------
 \newcommand{\infobox}[2]{%
   \par\noindent
@@ -233,10 +251,12 @@
       inner sep=4mm,
       text width=\dimexpr\linewidth-8mm-1.6pt\relax,
       align=left
-    ] {%
+    ] (infobox) {%
       {\headingfont\large\bfseries\color{inNavy}#1}\\[0.4em]
       {\color{inDark}#2}%
     };
+    % navy accent bar on the left edge
+    \fill[inNavy] ([xshift=0.8pt]infobox.north west) rectangle ([xshift=2.8mm,yshift=-0.8pt]infobox.south west);
   \end{tikzpicture}\par
   \vspace{0.6em}
 }

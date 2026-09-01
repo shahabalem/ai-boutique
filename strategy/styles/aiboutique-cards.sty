@@ -46,9 +46,11 @@
 }
 
 %-----------------------------------------------------------------------------
-%  \aiCardTitle{<text>} — card header in navy bold
+%  \aiCardTitle{<text>} — card header in navy bold with an accent rule
 %-----------------------------------------------------------------------------
-\newcommand{\aiCardTitle}[1]{{\large\bfseries\color{inNavy}#1}}
+\newcommand{\aiCardTitle}[1]{%
+  {\large\bfseries\color{inNavy}#1}\\[0.25em]
+  {\color{inBright}\rule{1.2cm}{1pt}}}
 
 %-----------------------------------------------------------------------------
 %  \aiCard[<keys>]{<content>} — rounded card with a subtle shadow
