@@ -48,6 +48,62 @@ owners, AI products in production, reusable platform components, AI-related
 roles created, reskilling completion, cross-functional adoption, and the
 percentage of AI investment linked to strategic objectives.
 
+\section{Agent evaluation}
+
+Evaluate agents across four dimensions [NIST AI RMF; ISO/IEC 42001]:
+
+\begin{itemize}
+  \item \textbf{Technical} — accuracy, reliability, latency, cost,
+        tool-call success, retrieval quality, hallucination rate, failure
+        recovery, security robustness.
+  \item \textbf{Human} — trust, satisfaction, cognitive load, time saved,
+        ease of use, adoption, human-override rate, quality of collaboration.
+  \item \textbf{Business} — revenue, cost, cycle time, quality, customer
+        satisfaction, employee capacity, risk reduction, innovation speed.
+  \item \textbf{Governance} — approval compliance, audit completeness,
+        access-control violations, privacy incidents, policy violations,
+        unapproved tool calls, shutdown effectiveness.
+\end{itemize}
+
+\begin{center}
+  \fitwidth{\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{8.6cm}}
+    \rowcolor{inNavy}
+    \hcell{Evaluation category} & \hcell{Example metrics} \\
+    \textbf{Capability} & Task-completion rate, accuracy \\
+    \textbf{Reliability} & Failure rate, recovery rate \\
+    \textbf{Efficiency} & Cost per task, latency \\
+    \textbf{Human experience} & Satisfaction, trust, cognitive load \\
+    \textbf{Business value} & Revenue, time saved, quality \\
+    \textbf{Safety} & Policy violations, unauthorized actions \\
+    \textbf{Governance} & Audit completeness, approval compliance \\
+  \end{tabular}}
+\end{center}
+
+\section{Agent replacement decision process}
+
+Before replacing a human task: define the task precisely, separate it into
+activities, identify repetitive versus judgment activities, assess data
+quality and error cost, check reversibility, define human checkpoints, test
+on historical examples, run a controlled pilot, compare AI versus human
+performance, monitor in production and \textbf{expand autonomy gradually}
+[Anthropic; NIST AI RMF].
+
+\begin{center}
+  \fitwidth{\begin{tabular}{>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{7.0cm}}
+    \rowcolor{inNavy}
+    \hcell{Assessment question} & \hcell{Evidence to collect} \\
+    Is the task repetitive, rules clear? & Process documentation \\
+    Is input data reliable and accessible? & Data-quality assessment \\
+    Is output easy to verify? & Test set, evaluation \\
+    Is the action reversible, error cost low? & Risk analysis \\
+    Are legal risks limited? & Compliance review \\
+    Can a human intervene? & Escalation design \\
+    Will users adopt it? & Pilot, adoption survey \\
+    Can performance be measured? & KPI baseline \\
+    \textbf{Recommended AI role} & \textbf{Assist / partially replace / replace} \\
+  \end{tabular}}
+\end{center}
+
 \begin{center}
   \yBanner[color=inBright]{Baseline before you build: every AI product needs a measured baseline, a target KPI, and an accountable owner.}
 \end{center}

@@ -59,3 +59,68 @@ design.
 
 The degree of autonomy rises with trust in the model, the reversibility of
 errors, and the strength of audit and escalation controls [NIST AI RMF].
+
+\section{Assistance versus task replacement}
+
+Organizations should not replace people based only on technical capability;
+they should redesign work by separating tasks into activities AI can
+automate, activities AI can assist with, and responsibilities that must
+remain human-led [Anthropic; Microsoft agent framework].
+
+\begin{itemize}
+  \item \textbf{Assistance model} — AI helps when judgment, context or
+        accountability matters (strategy, hiring, legal, medical, executive
+        and negotiation decisions).
+  \item \textbf{Partial replacement} — AI replaces parts of a job that are
+        repetitive, rule-based, verifiable and low-risk (data entry,
+        classification, transcription, standard reports).
+  \item \textbf{Full task automation} — AI performs an entire task when it is
+        narrowly defined, permissions are limited, results are validated and
+        consequences of failure are bounded.
+  \item \textbf{Human-only responsibility} — fundamental rights, employment
+        decisions, legal accountability, safety-critical outcomes and
+        high-value transactions remain human-led.
+\end{itemize}
+
+\begin{center}
+  \fitwidth{\begin{tabular}{>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedright\arraybackslash}p{3.7cm}}
+    \rowcolor{inNavy}
+    \hcell{Task characteristic} & \hcell{AI role} & \hcell{Human role} \\
+    \textbf{Repetitive, low-risk} & Replace task & Monitor exceptions \\
+    \textbf{Structured, verifiable} & Automate task & Review samples \\
+    \textbf{Complex, data-rich} & Assist decision & Own decision \\
+    \textbf{Ambiguous, strategic} & Support analysis & Decide \\
+    \textbf{High-risk, regulated} & Limited assistance & Approve; remain accountable \\
+    \textbf{Relationship-sensitive} & Prepare suggestions & Lead interaction \\
+    \textbf{Safety-critical} & Monitor or simulate & Control final action \\
+  \end{tabular}}
+\end{center}
+
+\section{The eight autonomy factors}
+
+Before granting autonomy, assess: \textbf{task repetition}, \textbf{task
+complexity}, \textbf{data structure and reliability}, \textbf{error cost and
+reversibility}, \textbf{required human judgment} (empathy, ethics,
+negotiation, accountability), \textbf{explainability and auditability},
+\textbf{reversibility and rollback}, and \textbf{permission scope} (systems,
+data, actions, external communication, spend) [NIST AI RMF; OWASP].
+
+\section{AI autonomy levels}
+
+\begin{center}
+  \fitwidth{\begin{tabular}{>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.4cm}}
+    \rowcolor{inNavy}
+    \hcell{Level} & \hcell{AI capability} & \hcell{Human involvement} & \hcell{Example} \\
+    \textbf{0} & No AI & Human performs all work & Manual reporting \\
+    \textbf{1} & Provides information & Human performs task & Search assistant \\
+    \textbf{2} & Recommends action & Human approves & Sales recommendation \\
+    \textbf{3} & Performs routine task & Human reviews exceptions & Invoice classification \\
+    \textbf{4} & Executes workflow & Human supervises & IT ticket resolution \\
+    \textbf{5} & Multi-agent coordination & Human governs system & Supply-chain planning \\
+    \textbf{6} & Continuous operation & Human controls boundaries & Low-risk autonomous ops \\
+  \end{tabular}}
+\end{center}
+
+The levels are \textbf{not} a replacement ladder: some tasks remain at
+Level~2 permanently because risk or accountability makes higher autonomy
+inappropriate [NIST AI RMF; EU AI Act].
