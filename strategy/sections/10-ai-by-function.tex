@@ -1,7 +1,8 @@
 %==============================================================================
-%  09-ai-by-function.tex — AI Usage Across Organizational Functions
+%  10-ai-by-function.tex — AI Usage Across Organizational Functions
+%  (merged: performance change + function playbook + agent workflows)
 %==============================================================================
-\strategyPart{09 \textbar\ AI by Function}{AI Usage and Performance Change by Function}
+\strategyPart{10 \textbar\ AI by Function}{AI Usage and Performance Change by Function}
 
 AI's measured impact varies sharply by the type of work. The research allows
 a function-by-function view of both adoption and performance change.
@@ -60,6 +61,41 @@ a function-by-function view of both adoption and performance change.
   Customer research, discovery, prioritization, roadmap planning,
   documentation. KPI: time-to-insight, feature-adoption rate.}
 
+\section{AI as an autonomous workflow agent}
+
+An agent interprets a goal, retrieves data, plans actions, uses approved
+tools, validates results, requests approval where necessary, executes and
+logs. Every agent needs defined \textbf{identity, role, permissions, tool
+scope, data scope, spending limits, escalation paths and logging} — Deloitte
+reports organizations increasingly customize agents, making identity,
+authorization, monitoring and human accountability essential
+[Deloitte 2026; Gartner 2024].
+
+\section{Three worked agent workflows}
+
+\textbf{Customer-service agent:} customer request $\rightarrow$ intent
+classification $\rightarrow$ history retrieval $\rightarrow$ policy check
+$\rightarrow$ response generation $\rightarrow$ risk and quality validation
+$\rightarrow$ human approval for sensitive cases $\rightarrow$ response
+$\rightarrow$ audit record.
+
+\textbf{Business-intelligence agent:} manager question $\rightarrow$ intent
+agent $\rightarrow$ data-discovery agent finds trusted data $\rightarrow$
+query agent builds and validates the query $\rightarrow$ analysis agent
+calculates results $\rightarrow$ visualization agent charts them
+$\rightarrow$ explanation agent writes the answer $\rightarrow$ human review
+for important decisions.
+
+\textbf{Product-management agent:} opportunity submitted $\rightarrow$
+customer-research agent analyzes feedback $\rightarrow$ market agent analyzes
+competitors $\rightarrow$ analytics agent reviews usage $\rightarrow$
+feasibility agent identifies constraints $\rightarrow$ prioritization agent
+scores the opportunity $\rightarrow$ \textbf{the product manager makes the
+decision}.
+
+These patterns support the professional without replacing strategic judgment
+[Anthropic; Microsoft agent framework].
+
 \section{Interpretation}
 
 The productivity statistics are the strongest evidence for the problem-first
@@ -68,3 +104,5 @@ philosophy: the gains are concentrated where the problem was precisely defined
 human--AI collaboration. Where the problem is vague, the measured gains
 disappear — which is exactly the population captured by the 30\% proof-of-
 concept abandonment prediction [Gartner 2023].
+
+\takeaway{Measured gains concentrate where the problem is precisely defined and the workflow is redesigned; adoption without redesign yields usage, not value.}

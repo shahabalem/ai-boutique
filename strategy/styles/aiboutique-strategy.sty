@@ -288,5 +288,21 @@
 %-----------------------------------------------------------------------------
 \newcommand{\hcell}[1]{\textcolor{white}{\bfseries#1}}
 
+%-----------------------------------------------------------------------------
+%  16. \takeaway{text} — "Key takeaway" summary box at the end of each part
+%-----------------------------------------------------------------------------
+\newcommand{\takeaway}[1]{%
+  \par\addvspace{0.7em}
+  \noindent
+  \begin{tikzpicture}
+    \node[fill=inSnow, draw=inBright, line width=0.8pt, rounded corners=2pt,
+          inner xsep=0.45em, inner ysep=0.4em,
+          text width=\dimexpr\linewidth-0.9em-1.6pt\relax, align=left] {%
+      {\headingfont\normalsize\bfseries\color{inNavy}Key takeaway}\\[0.25em]
+      {\footnotesize\color{inDark}#1}%
+    };
+  \end{tikzpicture}\par
+}
+
 \makeatother
 \endinput

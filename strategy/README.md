@@ -34,35 +34,36 @@ strategy/
 │   ├── aiboutique-strategy.sty   # Catalogue-style format (INSEEC-inspired)
 │   ├── aiboutique-banner.sty     # Flat banners  \yBanner  (adapted from yLaTeX)
 │   └── aiboutique-cards.sty      # Flat cards    \aiCard   (adapted from yLaTeX)
-├── sections/                # One file per document part (content only)
+├── sections/                # One file per part — organized in five acts + back matter
 │   ├── 00-cover.tex
-│   ├── 01-executive-summary.tex
-│   ├── 02-introduction.tex            # Research scope, problem, questions
-│   ├── 03-definitions.tex             # Concepts + adoption→transformation table
-│   ├── 04-theoretical-foundations.tex # 5 theories
-│   ├── 05-ai-paradigm.tex             # Digitalization → AI-enabled reinvention
-│   ├── 06-transformation-models.tex   # McKinsey/WEF/Deloitte/Stanford/NIST + maturity model
-│   ├── 07-value-ladder.tex            # Assist → Automate → Agentic → Redesign
-│   ├── 08-application-categories.tex  # AI technology stack & problem categories
-│   ├── 09-ai-by-function.tex          # Performance change by work type
-│   ├── 10-operating-models.tex        # CoE / federated / hybrid / product / agent
-│   ├── 11-organizational-readiness.tex# Human/Data/Organizational "stocks"
-│   ├── 12-work-transformation.tex     # Workflow redesign + human-in-the-loop
-│   ├── 13-people-skills-culture.tex   # Workforce & skill-gap table
-│   ├── 14-data-technology.tex         # Data readiness & AI architecture
-│   ├── 15-governance.tex              # NIST / OECD / EU AI Act / agentic controls
-│   ├── 16-why-ai-fails.tex            # Failure modes + statistics
-│   ├── 17-case-studies.tex            # Success & failure stories
-│   ├── 18-measurement.tex             # ROI, productivity, adoption metrics
-│   ├── 19-roadmap.tex                 # Kotter 8 steps → 7-phase roadmap
-│   ├── 20-comparative-analysis.tex    # Comparative matrix (traditional→AI-native)
-│   ├── 21-methodology.tex             # Evidence hierarchy & contributions
-│   ├── 22-conclusion.tex              # Executive conclusion & call to action
-│   ├── 23-appendix-titles.tex         # Recommended additional titles & sources
-│   ├── 24-how-ai-works.tex            # How AI Works in Companies (5 levels)
-│   ├── 25-ai-use-playbook.tex         # AI Use Playbook by Business Function
-│   ├── 26-ai-capabilities.tex         # AI-Enabled Organizational Capabilities
-│   └── 27-predictions.tex             # Predictions of AI Usage & Organizational Change
+│   ├── 01-executive-summary.tex       # Act 1 · The Problem
+│   ├── 02-introduction.tex
+│   ├── 03-definitions.tex             # Act 2 · The Landscape
+│   ├── 04-theoretical-foundations.tex
+│   ├── 05-ai-paradigm.tex
+│   ├── 06-transformation-models.tex
+│   ├── 07-value-ladder.tex
+│   ├── 08-application-categories.tex
+│   ├── 09-how-ai-works.tex
+│   ├── 10-ai-by-function.tex
+│   ├── 11-data-technology.tex
+│   ├── 12-operating-models.tex        # Act 3 · The Organization
+│   ├── 13-organizational-readiness.tex
+│   ├── 14-work-transformation.tex
+│   ├── 15-people-skills-culture.tex
+│   ├── 16-ai-capabilities.tex
+│   ├── 17-governance.tex
+│   ├── 18-why-ai-fails.tex            # Act 4 · The Journey
+│   ├── 19-case-studies.tex
+│   ├── 20-measurement.tex
+│   ├── 21-roadmap.tex
+│   ├── 22-comparative-analysis.tex    # Act 5 · The Path Forward
+│   ├── 23-predictions.tex
+│   ├── 24-conclusion.tex
+│   ├── 25-methodology.tex             # Back matter
+│   ├── 26-references.tex
+│   ├── 27-glossary.tex
+│   └── 28-appendix-toolkit.tex
 ├── fonts/                   # Fira Sans (body), Oswald (headings)
 └── images/                  # Images
 ```
