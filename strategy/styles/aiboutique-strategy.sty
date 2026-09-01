@@ -1,7 +1,7 @@
 %==============================================================================
-%  aiboutique-proposal.sty
+%  aiboutique-strategy.sty
 %------------------------------------------------------------------------------
-%  AI Boutique — Proposal document format (graphical, catalogue style)
+%  Executive strategy document format (graphical, catalogue style)
 %
 %  Design reference : INSEEC MSc & MBA brochure (plaquette)
 %      https://issuu.com/inseec/docs/plaquette-inseec-msc-mba
@@ -11,13 +11,13 @@
 %
 %  Load with:
 %      \documentclass[11pt]{article}
-%      \usepackage{styles/aiboutique-proposal}
+%      \usepackage{styles/aiboutique-strategy}
 %
-%  Compile with XeLaTeX (fontspec). Each proposal part is a separate file in
+%  Compile with XeLaTeX (fontspec). Each document part is a separate file in
 %  sections/ and is integrated by the main document.
 %==============================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{styles/aiboutique-proposal}[2026/09/01 v1.0 AI Boutique proposal format (INSEEC-inspired catalogue style)]
+\ProvidesPackage{styles/aiboutique-strategy}[2026/09/01 v1.0 Executive strategy document format (INSEEC-inspired catalogue style)]
 
 %-----------------------------------------------------------------------------
 %  1. Required packages
@@ -127,13 +127,17 @@
 \setlist[enumerate]{label={\textcolor{inNavy}{\arabic*.}},leftmargin=1.7em,itemsep=0.35em,topsep=0.4em}
 
 %-----------------------------------------------------------------------------
-%  7. Header & footer — brand, part title, page number, pale rule
+%  7. Header & footer — series label, part title, page number, pale rule
 %-----------------------------------------------------------------------------
+% \serieslabel{text} — short label shown in the header/footer (no branding)
+\newcommand{\serieslabel}[1]{\renewcommand{\serieslabeltext}{#1}}
+\newcommand{\serieslabeltext}{Executive Strategy Briefing}
+
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\bfseries\color{inGrey}AI Boutique}
+\fancyhead[L]{\small\bfseries\color{inGrey}\serieslabeltext}
 \fancyhead[R]{\small\color{inGrey}\nouppercase{\leftmark}}
-\fancyfoot[L]{\small\color{inGrey}AI Boutique \textbar\ Proposal}
+\fancyfoot[L]{\small\color{inGrey}\serieslabeltext}
 \fancyfoot[R]{\small\color{inGrey}\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.6pt}
@@ -142,7 +146,7 @@
 % Part pages: no header (the navy band lives at the top), footer only.
 \fancypagestyle{partpage}{%
   \fancyhf{}
-  \fancyfoot[L]{\small\color{inGrey}AI Boutique \textbar\ Proposal}
+  \fancyfoot[L]{\small\color{inGrey}\serieslabeltext}
   \fancyfoot[R]{\small\color{inGrey}\thepage}
   \renewcommand{\headrulewidth}{0pt}
 }
@@ -159,14 +163,14 @@
 \makeatletter
 \newcommand{\subtitle}[1]{\def\@subtitle{#1}}
 \def\@subtitle{}
-\newcommand{\proposalkicker}[1]{\def\@proposalkicker{#1}}
-\def\@proposalkicker{Artificial Intelligence \& Data Science}
+\newcommand{\serieskicker}[1]{\def\@serieskicker{#1}}
+\def\@serieskicker{Artificial Intelligence \& Data Science}
 
 %-----------------------------------------------------------------------------
-%  10. \proposalpart{kicker}{title} — full-width navy part opener
-%      Usage: \proposalpart{01 · Executive Summary}{The Opportunity}
+%  10. \strategyPart{kicker}{title} — full-width navy part opener
+%      Usage: \strategyPart{01 · Executive Summary}{The Opportunity}
 %-----------------------------------------------------------------------------
-\newcommand{\proposalpart}[2]{%
+\newcommand{\strategyPart}[2]{%
   \clearpage
   \thispagestyle{partpage}
   \markboth{#2}{}%
@@ -182,24 +186,23 @@
 }
 
 %-----------------------------------------------------------------------------
-%  11. \proposalCover — full-page catalogue-style cover
-%      Uses \title, \subtitle, \proposalkicker, \author, \date.
+%  11. \strategyCover — full-page catalogue-style cover
+%      Uses \title, \subtitle, \serieskicker, \author, \date.
 %-----------------------------------------------------------------------------
-\newcommand{\proposalCover}{%
+\newcommand{\strategyCover}{%
   \clearpage
   \thispagestyle{empty}
   \begin{tikzpicture}[remember picture,overlay]
     % Top navy panel
     \fill[inNavy] (current page.north west) rectangle ([yshift=-9cm]current page.north east);
-    % Brand mark + wordmark (top-right)
-    \fill[inBright] ([xshift=-2cm,yshift=-1.5cm]current page.north east) ++(-0.55cm,-0.55cm) rectangle ++(1.1cm,1.1cm);
-    \node[white,font=\Large\bfseries] at ([xshift=-2cm,yshift=-1.5cm]current page.north east) {AI};
-    \node[white,font=\headingfont\LARGE\bfseries] at ([xshift=-3.4cm,yshift=-1.5cm]current page.north east) {AI Boutique};
+    % Series label (top-right, neutral)
+    \node[anchor=east,font=\headingfont\fontsize{13}{15}\selectfont,color=inLight]
+      at ([xshift=-2cm,yshift=-1.5cm]current page.north east) {\MakeUppercase{\serieslabeltext}};
     % Kicker
     \node[anchor=west,font=\headingfont\fontsize{13}{15}\selectfont,color=inLight]
-      at ([xshift=2cm,yshift=-3.7cm]current page.north west) {\MakeUppercase{\@proposalkicker}};
+      at ([xshift=2cm,yshift=-3.7cm]current page.north west) {\MakeUppercase{\@serieskicker}};
     % Title
-    \node[anchor=west,font=\headingfont\fontsize{40}{44}\selectfont\bfseries,color=white,align=left,
+    \node[anchor=west,font=\headingfont\fontsize{36}{40}\selectfont\bfseries,color=white,align=left,
       text width=\dimexpr\paperwidth-4cm\relax]
       at ([xshift=2cm,yshift=-4.9cm]current page.north west) {\@title};
     % Accent rule

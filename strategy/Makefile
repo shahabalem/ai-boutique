@@ -1,5 +1,5 @@
 #==============================================================================
-#  Makefile — AI Boutique proposal
+#  Makefile — Strategic AI Reinvention & Organizational Transformation
 #  Build with XeLaTeX (fontspec, Fira Sans + Oswald fonts)
 #==============================================================================
 LATEXMK   = latexmk
