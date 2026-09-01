@@ -60,7 +60,8 @@ strategy/
 │   ├── 23-appendix-titles.tex         # Recommended additional titles & sources
 │   ├── 24-how-ai-works.tex            # How AI Works in Companies (5 levels)
 │   ├── 25-ai-use-playbook.tex         # AI Use Playbook by Business Function
-│   └── 26-ai-capabilities.tex         # AI-Enabled Organizational Capabilities
+│   ├── 26-ai-capabilities.tex         # AI-Enabled Organizational Capabilities
+│   └── 27-predictions.tex             # Predictions of AI Usage & Organizational Change
 ├── fonts/                   # Fira Sans (body), Oswald (headings)
 └── images/                  # Images
 ```
