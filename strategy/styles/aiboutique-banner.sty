@@ -34,7 +34,7 @@
   color/.initial = inNavy,
   text color/.initial = white,
   inner sep/.initial = 3mm,
-  additional horizontal space/.initial = 3mm,
+  additional horizontal space/.initial = 2mm,
   align/.initial = center,
   font/.initial = {},
 }
@@ -45,8 +45,8 @@
 \pgfkeys{
   /ybanner/endings/.cd,
   vertical offset/.initial = 3mm,
-  inner width/.initial = 8mm,
-  outer width/.initial = 1cm,
+  inner width/.initial = 4mm,
+  outer width/.initial = 2mm,
   triangle offset/.initial = 3mm,
 }
 
@@ -64,6 +64,7 @@
       align=\pgfkeysvalueof{/ybanner/align},
       text=\pgfkeysvalueof{/ybanner/text color},
       font=\pgfkeysvalueof{/ybanner/font},
+      text width=\dimexpr\linewidth-\pgfkeysvalueof{/ybanner/additional horizontal space}-\pgfkeysvalueof{/ybanner/additional horizontal space}-\pgfkeysvalueof{/ybanner/inner sep}-\pgfkeysvalueof{/ybanner/inner sep}\relax,
     ] (text) {\hspace*{\pgfkeysvalueof{/ybanner/additional horizontal space}}#2\hspace*{\pgfkeysvalueof{/ybanner/additional horizontal space}}};
     % Left triangle
     \coordinate[xshift=\pgfkeysvalueof{/ybanner/endings/inner width}] (leftTriangleInnerTop) at (text.south west);

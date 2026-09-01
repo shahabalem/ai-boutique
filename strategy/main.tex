@@ -38,8 +38,12 @@ organizations}
 
 \begin{document}
 
-% ===== One separate file per document part, integrated here =====
-\input{sections/00-cover.tex}                      % Cover
+% ===== Cover (single column, full page) =====
+\input{sections/00-cover.tex}
+
+% ===== Two-column whitepaper body — continuous flow, no forced page breaks =====
+\twocolumn
+
 \input{sections/01-executive-summary.tex}          % Executive Summary
 \input{sections/02-introduction.tex}               % Introduction & Research Scope
 \input{sections/03-definitions.tex}                % Definitions & Concepts
@@ -63,6 +67,11 @@ organizations}
 \input{sections/21-methodology.tex}                % Methodology & Contributions
 \input{sections/22-conclusion.tex}                 % Executive Conclusion
 \input{sections/23-appendix-titles.tex}            % Appendix: Recommended Titles
+
+% ===== How AI Works in Companies (enrichment series) =====
+\input{sections/24-how-ai-works.tex}               % How AI Works in Companies
+\input{sections/25-ai-use-playbook.tex}            % AI Use Playbook by Function
+\input{sections/26-ai-capabilities.tex}            % AI-Enabled Organizational Capabilities
 
 \end{document}
 

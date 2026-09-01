@@ -168,22 +168,22 @@
 \def\@serieskicker{Artificial Intelligence \& Data Science}
 
 %-----------------------------------------------------------------------------
-%  10. \strategyPart{kicker}{title} — full-width navy part opener
-%      Usage: \strategyPart{01 · Executive Summary}{The Opportunity}
+%  10. \strategyPart{kicker}{title} — in-column navy part heading
+%      Continuous flow: no page break (whitepaper / article style).
+%      Usage: \strategyPart{01 \textbar\ Executive Summary}{The Opportunity}
 %-----------------------------------------------------------------------------
 \newcommand{\strategyPart}[2]{%
-  \clearpage
-  \thispagestyle{partpage}
+  \par\addvspace{1.3em}
+  \noindent
+  \begin{tikzpicture}
+    \node[fill=inNavy, text=white, font=\headingfont, inner xsep=0.5em, inner ysep=0.45em,
+          text width=\dimexpr\linewidth-1em-1.6pt\relax, align=left] {%
+      {\fontsize{8}{10}\selectfont\color{inLight}\MakeUppercase{#1}}\\[0.28em]
+      {\fontsize{15}{17}\selectfont\bfseries #2}%
+    };
+  \end{tikzpicture}\par
+  \addvspace{0.6em}
   \markboth{#2}{}%
-  \begin{tikzpicture}[remember picture,overlay]
-    \fill[inNavy] (current page.north west) rectangle ([yshift=-3.4cm]current page.north east);
-    \fill[inBright] ([yshift=-3.4cm]current page.north west) rectangle ([yshift=-3.52cm]current page.north east);
-    \node[anchor=west,font=\headingfont\fontsize{12}{14}\selectfont,color=inLight]
-      at ([xshift=2cm,yshift=-1.15cm]current page.north west) {\MakeUppercase{#1}};
-    \node[anchor=west,font=\headingfont\fontsize{27}{31}\selectfont\bfseries,color=white]
-      at ([xshift=2cm,yshift=-2.05cm]current page.north west) {#2};
-  \end{tikzpicture}
-  \vspace*{1.75cm}
 }
 
 %-----------------------------------------------------------------------------
@@ -230,15 +230,15 @@
   \begin{tikzpicture}
     \node[
       fill=inSnow,draw=inPale,line width=0.8pt,rounded corners=2pt,
-      inner sep=5mm,
-      text width=\dimexpr\linewidth-1cm-1.6pt\relax,
+      inner sep=4mm,
+      text width=\dimexpr\linewidth-8mm-1.6pt\relax,
       align=left
     ] {%
-      {\headingfont\large\bfseries\color{inNavy}#1}\\[0.45em]
+      {\headingfont\large\bfseries\color{inNavy}#1}\\[0.4em]
       {\color{inDark}#2}%
     };
   \end{tikzpicture}\par
-  \vspace{0.7em}
+  \vspace{0.6em}
 }
 
 %-----------------------------------------------------------------------------
@@ -247,18 +247,24 @@
 \newcommand{\stat}[2]{%
   \begin{tikzpicture}
     \node[inner sep=0pt] {%
-      \begin{minipage}{3.4cm}
+      \begin{minipage}{2.6cm}
         \centering
-        {\headingfont\fontsize{30}{34}\selectfont\bfseries\color{inNavy}#1}\\[0.15em]
-        {\color{inBright}\rule{1.3cm}{1.6pt}}\\[0.35em]
-        {\fontsize{10}{12}\selectfont\color{inGrey}#2}
+        {\headingfont\fontsize{22}{25}\selectfont\bfseries\color{inNavy}#1}\\[0.15em]
+        {\color{inBright}\rule{1.0cm}{1.6pt}}\\[0.3em]
+        {\fontsize{9}{11}\selectfont\color{inGrey}#2}
       \end{minipage}%
     };
   \end{tikzpicture}
 }
 
 %-----------------------------------------------------------------------------
-%  14. \hcell{text} — white bold table header cell
+%  14. \fitwidth{content} — scale a wide table/diagram to the current column
+%-----------------------------------------------------------------------------
+\newcommand{\fitwidth}[1]{%
+  \par\noindent\resizebox{\linewidth}{!}{#1}\par\vspace{0.5em}}
+
+%-----------------------------------------------------------------------------
+%  15. \hcell{text} — white bold table header cell
 %-----------------------------------------------------------------------------
 \newcommand{\hcell}[1]{\textcolor{white}{\bfseries#1}}
 

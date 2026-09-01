@@ -13,7 +13,7 @@ technology procurement.
 \begin{center}
   \renewcommand{\arraystretch}{1.45}
   \rowcolors{2}{inSnow}{white}
-  \begin{tabular}{>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{4.9cm}>{\raggedright\arraybackslash}p{4.9cm}}
+  \fitwidth{\begin{tabular}{>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{4.9cm}>{\raggedright\arraybackslash}p{4.9cm}}
     \rowcolor{inNavy}
     \hcell{Model} & \hcell{Core structure} & \hcell{Key evidence base} \\
     \textbf{McKinsey} & AI enablement $\rightarrow$ workflow automation $\rightarrow$ operating-model reinvention & State of AI: 88\% adopt, 7\% fully scaled [McKinsey 2025]. \\
@@ -22,13 +22,13 @@ technology procurement.
     \textbf{Stanford} & Macro evidence: investment, performance, adoption, labor, incidents, productivity & AI Index annual reports [Stanford AI Index 2025]. \\
     \textbf{NIST} & Govern $\rightarrow$ Map $\rightarrow$ Measure $\rightarrow$ Manage & AI Risk Management Framework 1.0 [NIST]. \\
     \textbf{OECD} & Human-centered, trustworthy AI principles & OECD AI Principles [OECD]. \\
-  \end{tabular}
+  \end{tabular}}
 \end{center}
 
 \section{Integrated AI transformation maturity model}
 
 \begin{center}
-  \begin{tikzpicture}
+  \fitwidth{\begin{tikzpicture}
     \node[fill=inNavy!6!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m1) at (0,0) {L1 · Unstructured experimentation};
     \node[fill=inNavy!5!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m2) at (0,0.85) {L2 · Controlled adoption};
     \node[fill=inNavy!4!inBright, text=white, font=\bfseries\small, minimum height=0.7cm, anchor=west, text width=3.0cm, align=left] (m3) at (0,1.7) {L3 · Functional integration};
@@ -41,7 +41,7 @@ technology procurement.
     \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,2.55) {End-to-end processes are redesigned.};
     \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,3.4) {AI systems and agents coordinate across functions.};
     \node[font=\footnotesize, color=inGrey, anchor=west, text width=11.6cm, align=left] at (3.2,4.25) {The organization continuously adapts around AI.};
-  \end{tikzpicture}
+  \end{tikzpicture}}
 \end{center}
 
 Each level is evaluated across ten dimensions: \textbf{strategy, leadership,

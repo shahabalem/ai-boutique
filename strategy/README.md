@@ -1,15 +1,21 @@
 # Strategic AI Reinvention & Organizational Transformation
+# (Organizational Transformation in the Age of AI)
 
-An executive-level, evidence-based strategy document built with LaTeX
-(article) and XeLaTeX. The core philosophy:
+An executive-level, evidence-based **whitepaper / research survey** built with
+LaTeX (article) and XeLaTeX. The core philosophy:
 
 > *"We do not implement AI for the organization; we solve organizational
 > problems using AI."*
 
 Every claim is grounded in published research from McKinsey, Gartner,
 Harvard Business Review, MIT Sloan Management Review (with BCG), MIT CISR,
+Stanford HAI, the World Economic Forum, Deloitte AI Institute, NIST, OECD,
 Forbes, Business Insider, Reuters and Kotter — cited inline, e.g.
 `[McKinsey 2023]`, `[Gartner 2023]`.
+
+The document is typeset in **two columns** with continuous flow (no forced
+page breaks between parts), like a journal article or professional whitepaper.
+Wide tables and diagrams are automatically scaled to the column width.
 
 The design is inspired by the
 [INSEEC MSc & MBA brochure](https://issuu.com/inseec/docs/plaquette-inseec-msc-mba)
@@ -51,7 +57,10 @@ strategy/
 │   ├── 20-comparative-analysis.tex    # Comparative matrix (traditional→AI-native)
 │   ├── 21-methodology.tex             # Evidence hierarchy & contributions
 │   ├── 22-conclusion.tex              # Executive conclusion & call to action
-│   └── 23-appendix-titles.tex         # Recommended additional titles & sources
+│   ├── 23-appendix-titles.tex         # Recommended additional titles & sources
+│   ├── 24-how-ai-works.tex            # How AI Works in Companies (5 levels)
+│   ├── 25-ai-use-playbook.tex         # AI Use Playbook by Business Function
+│   └── 26-ai-capabilities.tex         # AI-Enabled Organizational Capabilities
 ├── fonts/                   # Fira Sans (body), Oswald (headings)
 └── images/                  # Images
 ```

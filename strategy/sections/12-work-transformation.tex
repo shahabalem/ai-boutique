@@ -22,7 +22,7 @@ design.
 \begin{center}
   \renewcommand{\arraystretch}{1.5}
   \rowcolors{2}{inSnow}{white}
-  \begin{tabular}{>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.2cm}}
+  \fitwidth{\begin{tabular}{>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.2cm}}
     \rowcolor{inNavy}
     \hcell{Process element} & \hcell{Traditional process} & \hcell{AI-enabled process} \\
     \textbf{Information collection} & Manual retrieval & Automated retrieval and synthesis \\
@@ -31,7 +31,7 @@ design.
     \textbf{Execution} & Human performs action & Agent executes; human monitors \\
     \textbf{Quality control} & Manual review & Automated checks + human review \\
     \textbf{Exception handling} & Escalation to manager & AI routes exceptions automatically \\
-  \end{tabular}
+  \end{tabular}}
 \end{center}
 
 \section{Process redesign sequence}
@@ -49,12 +49,12 @@ design.
 \section{Human-in-the-loop design}
 
 \begin{center}
-  \begin{tikzpicture}
+  \fitwidth{\begin{tikzpicture}
     \node[fill=inNavy,   text=white, font=\bfseries\footnotesize, rounded corners=1pt, minimum height=0.9cm, text width=3.4cm, align=center] (a) {Human must approve every action};
     \node[fill=inHover,  text=white, font=\bfseries\footnotesize, rounded corners=1pt, minimum height=0.9cm, text width=3.4cm, align=center, right=2mm of a] (b) {Human reviews exceptions};
     \node[fill=inBright, text=white, font=\bfseries\footnotesize, rounded corners=1pt, minimum height=0.9cm, text width=3.4cm, align=center, right=2mm of b] (c) {Human monitors performance};
     \node[fill=inLight,  text=white, font=\bfseries\footnotesize, rounded corners=1pt, minimum height=0.9cm, text width=3.4cm, align=center, right=2mm of c] (d) {AI acts within defined boundaries};
-  \end{tikzpicture}
+  \end{tikzpicture}}
 \end{center}
 
 The degree of autonomy rises with trust in the model, the reversibility of
