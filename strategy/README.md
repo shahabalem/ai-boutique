@@ -10,8 +10,9 @@ LaTeX (article) and XeLaTeX. The core philosophy:
 Every claim is grounded in published research from McKinsey, Gartner,
 Harvard Business Review, MIT Sloan Management Review (with BCG), MIT CISR,
 Stanford HAI, the World Economic Forum, Deloitte AI Institute, NIST, OECD,
+Anthropic and Microsoft agent research, OWASP, ISO/IEC, EU AI Act,
 Forbes, Business Insider, Reuters and Kotter — cited inline, e.g.
-`[McKinsey 2023]`, `[Gartner 2023]`.
+`[McKinsey 2023]`, `[Gartner 2023]`, `[Anthropic]`, `[NIST AI RMF]`.
 
 The document is typeset in **two columns** with continuous flow (no forced
 page breaks between parts), like a journal article or professional whitepaper.

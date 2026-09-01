@@ -24,14 +24,40 @@ most direct quantification of the ``data trust deficit.''
 
 \section{AI architecture layers}
 
-\begin{itemize}
-  \item Data platforms and data products.
-  \item Model platforms and a \textbf{model gateway} (routing, cost control).
-  \item Retrieval systems (vector search, RAG with citation and access control).
-  \item API and tool integration (ERP, CRM, knowledge bases, ticketing).
-  \item Identity and access management, orchestration, monitoring, security.
-  \item Human-approval systems and audit logging.
-\end{itemize}
+An enterprise agent architecture can be described as nine layers, from
+business goals to monitoring [Anthropic; Microsoft agent framework; MCP
+documentation]:
+
+\begin{enumerate}
+  \item \textbf{User and business-goal layer} — employee and customer
+        requests, strategic goals, events and alerts.
+  \item \textbf{Interaction layer} — chat, voice, dashboards, business
+        applications, collaboration platforms.
+  \item \textbf{Orchestration layer} — selects the model and agent, resolves
+        required tools, parallelism, approvals, stop and escalation
+        conditions.
+  \item \textbf{Agent layer} — specialized agents (planning, research, data,
+        coding, compliance, service, finance, quality).
+  \item \textbf{Model layer} — foundation models, small and domain models,
+        predictive, embedding, reranking, vision and speech models.
+  \item \textbf{Knowledge and data layer} — databases, warehouses, documents,
+        knowledge bases, APIs, ERP/CRM/BI data, product analytics.
+  \item \textbf{Tool and action layer} — search, queries, report generation,
+        CRM/ERP/ticketing systems, email, calendar, payment and
+        product-management platforms.
+  \item \textbf{Identity and security layer} — every agent has an identity,
+        role, permissions, approved tools, data boundaries, transaction
+        limits, audit logs and an emergency stop.
+  \item \textbf{Monitoring and evaluation layer} — accuracy, cost, latency,
+        tool usage, failed actions, human overrides, policy violations,
+        security incidents, satisfaction and business outcomes.
+\end{enumerate}
+
+Microsoft's agent framework emphasizes \textbf{human-in-the-loop workflows}:
+the agent pauses, sends an approval request and waits before continuing
+[Microsoft agent framework]. The OWASP Top 10 for LLM applications flags
+\textbf{excessive agency} — granting agents more permissions than a task
+requires — as a first-order security risk [OWASP].
 
 \section{Model strategy}
 

@@ -17,15 +17,48 @@ importantly, the four organizational states those systems produce.
   \item \textbf{Generative AI} — systems that generate text, images, code,
         audio, video and structured data from learned patterns
         [Stanford AI Index; NIST Generative AI Profile].
-  \item \textbf{AI assistant} — supports a human user by retrieving
-        information, summarizing, analyzing, recommending or executing limited
-        tasks (knowledge assistants, customer copilots, coding assistants).
-  \item \textbf{AI agent} — interprets a goal, plans actions, uses tools,
-        retrieves information and completes tasks with varying autonomy.
-  \item \textbf{Multi-agent system} — several specialized agents communicate
-        and coordinate to solve a complex problem (planning, retrieval,
-        validation, execution, monitoring).
+  \item \textbf{AI model} — generates predictions, classifications,
+        recommendations or content (LLMs, predictive, recommendation,
+        classification and vision models).
+  \item \textbf{AI assistant} — supports a person but normally does not act
+        independently (writing, research, product-management and BI
+        assistants).
+  \item \textbf{AI copilot} — works inside a business process and suggests
+        actions while the employee remains responsible (sales, coding,
+        financial-analysis and service copilots).
+  \item \textbf{AI agent} — receives an objective, determines the steps,
+        uses tools and may execute actions with limited human intervention.
+  \item \textbf{AI workflow} — a fixed, engineer-controlled sequence of AI
+        steps; use it when the process is structured and rules are stable
+        [Anthropic].
+  \item \textbf{Multi-agent system} — several specialized agents cooperate
+        (planning, retrieval, analysis, validation, reporting, governance).
+  \item \textbf{AI-orchestrated organization} — agents coordinate
+        information, tasks, decisions and workflows across teams and systems.
 \end{itemize}
+
+\section{The agent vocabulary at a glance}
+
+\begin{center}
+  \fitwidth{\begin{tabular}{>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.5cm}}
+    \rowcolor{inNavy}
+    \hcell{System} & \hcell{Main role} & \hcell{Autonomy} & \hcell{Human role} & \hcell{Main risk} \\
+    \textbf{Assistant} & Provides information & Low & User & Incorrect info \\
+    \textbf{Copilot} & Suggests in a process & Low--medium & Reviewer & Overreliance \\
+    \textbf{Workflow} & Executes fixed sequence & Fixed & Designer & Brittleness \\
+    \textbf{Agent} & Completes bounded tasks & Medium--high & Supervisor & Unauthorized action \\
+    \textbf{Multi-agent} & Coordinates specialists & Variable & Governor & Cascading failure \\
+  \end{tabular}}
+\end{center}
+
+The central design question is not ``can an agent replace a person'' but
+\textbf{which parts of a job AI can perform safely, which parts it should
+assist with, and which responsibilities must remain under human judgment and
+accountability} [Anthropic; NIST AI RMF; Microsoft agent framework].
+Anthropic's agent research recommends \textbf{selecting the simplest
+architecture that reliably solves the business problem} — using predictable
+workflows when the process is structured, and agents only when the task
+requires dynamic, flexible interaction.
 
 \section{Adoption, enablement, transformation and AI-native}
 
