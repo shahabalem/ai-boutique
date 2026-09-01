@@ -1,0 +1,52 @@
+%==============================================================================
+%  main.tex — Strategic AI Reinvention & Organizational Transformation
+%------------------------------------------------------------------------------
+%  Executive strategy document (neutral, evidence-based, catalogue style).
+%
+%  Compile with XeLaTeX from the strategy/ directory:
+%      latexmk -xelatex main.tex          (recommended — run twice for overlays)
+%
+%  Structure:
+%      styles/aiboutique-strategy.sty     -> catalogue-style format
+%      styles/aiboutique-banner.sty       -> flat banners (\yBanner)
+%      styles/aiboutique-cards.sty        -> flat cards    (\aiCard)
+%      sections/*.tex                     -> one file per document part
+%      fonts/                             -> Fira Sans + Oswald
+%==============================================================================
+\documentclass[11pt]{article}
+
+% ---- Style files (separated from the document content) ----
+\usepackage{styles/aiboutique-strategy}
+\usepackage{styles/aiboutique-banner}
+\usepackage{styles/aiboutique-cards}
+
+% ---- Document metadata (neutral — no company branding) ----
+\title{Strategic AI Reinvention\\\& Organizational Transformation}
+\subtitle{An evidence-based executive strategy for solving organizational
+problems with artificial intelligence}
+\serieskicker{Executive Strategy Series \textbar\ Artificial Intelligence}
+\author{Strategy \& AI Research Group}
+\date{\today}
+\serieslabel{Executive Strategy Briefing}
+
+\hypersetup{
+  pdftitle={Strategic AI Reinvention \& Organizational Transformation},
+  pdfauthor={Strategy \& AI Research Group},
+  pdfsubject={Executive strategy for AI-enabled organizational transformation},
+}
+
+\begin{document}
+
+% ===== One separate file per document part, integrated here =====
+\input{sections/00-cover.tex}                    % Cover
+\input{sections/01-executive-summary.tex}        % Executive Summary
+\input{sections/02-ai-paradigm.tex}              % Section 1 — The AI Paradigm
+\input{sections/03-value-ladder.tex}             % Section 2 — Value Creation Ladder
+\input{sections/04-application-categories.tex}   % Section 3 — Application Categories
+\input{sections/05-organizational-readiness.tex} % Section 4 — Organizational Readiness
+\input{sections/06-why-ai-fails.tex}             % Section 5 — Why AI Fails
+\input{sections/07-reinvention-roadmap.tex}      % Section 6 — Reinvention Roadmap
+\input{sections/08-case-studies.tex}             % Section 7 — Case Studies
+\input{sections/09-conclusion.tex}               % Section 8 — Conclusion & Call to Action
+
+\end{document}
