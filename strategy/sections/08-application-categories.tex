@@ -1,7 +1,7 @@
 %==============================================================================
 %  04-application-categories.tex — Section 3: AI Application Categories
 %==============================================================================
-\strategyPart{Section 03 \textbar\ Application Categories}{AI Applications That Solve Organizational Problems}
+\strategyPart{08 \textbar\ AI Technologies}{AI Applications That Solve Organizational Problems}
 
 The correct unit of analysis is not the algorithm; it is the organizational
 problem. Drawing on the problem-centric categorization used in MIT Sloan
@@ -47,6 +47,24 @@ P\&L line items — revenue, cost, risk and cash. The executive implication is
 that a problem-first portfolio is not an even spread across all four
 categories; it is a concentration on the categories that map to the
 organization's most expensive unsolved problems.
+
+\section{The AI technology stack}
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.45}
+  \rowcolors{2}{inSnow}{white}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.4cm}}
+    \rowcolor{inNavy}
+    \hcell{Technology} & \hcell{Primary use} & \hcell{Autonomy} & \hcell{Human role} & \hcell{Main risk} \\
+    \textbf{Predictive AI} & Forecasting, risk & Low & Approves & Forecast error \\
+    \textbf{Classification / recommend} & Segmentation, next-best-action & Low--medium & Reviews & Bias \\
+    \textbf{Generative AI / LLM} & Content, knowledge & Low & Verifies & Hallucination \\
+    \textbf{RAG} & Grounded knowledge & Medium & Validates & Stale data \\
+    \textbf{Copilots / assistants} & Augmented work & Low--medium & Reviewer & Overreliance \\
+    \textbf{Autonomous agents} & Task execution & High & Supervisor & Unauthorized action \\
+    \textbf{Multi-agent BI} & Coordinated analytics & High & Governor & Cascading failure \\
+  \end{tabular}
+\end{center}
 
 \section{Selecting the right category}
 

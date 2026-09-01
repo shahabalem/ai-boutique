@@ -1,0 +1,52 @@
+%==============================================================================
+%  10-operating-models.tex — Organizational Operating Models
+%==============================================================================
+\strategyPart{10 \textbar\ Operating Models}{How to Organize for AI}
+
+The operating model decides whether AI scales or stalls. Five archetypes
+recur in the research [Deloitte; McKinsey; enterprise-architecture practice].
+
+\section{The five operating models}
+
+\begin{center}
+  \renewcommand{\arraystretch}{1.45}
+  \rowcolors{2}{inSnow}{white}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.6cm}}
+    \rowcolor{inNavy}
+    \hcell{Model} & \hcell{Main characteristics} & \hcell{Strengths} & \hcell{Weaknesses} \\
+    \textbf{Centralized CoE} & One central AI team owns standards, platform, governance & Consistent standards; strong control & Slow, distant from business \\
+    \textbf{Federated} & Business units own AI; enterprise principles only & Fast, domain-close & Duplication; inconsistent governance \\
+    \textbf{Hybrid} & Central platform + embedded product teams & Balance of control and speed & Needs clear decision rights \\
+    \textbf{Product-based} & AI managed as products with owners and roadmaps & User- and value-focused & Requires mature product discipline \\
+    \textbf{Agent-orchestrated} & Agents coordinate work and tools under governance & Highest automation potential & Complex governance and security \\
+  \end{tabular}
+\end{center}
+
+\section{The AI product operating model}
+
+The product-based model deserves emphasis because it corrects the most common
+structural failure: treating AI as a project. Each AI product should have
+defined roles:
+
+\begin{itemize}
+  \item \textbf{Product owner} — value and roadmap.
+  \item \textbf{Business sponsor} — budget and outcomes.
+  \item \textbf{Technical owner} — engineering and operations.
+  \item \textbf{Data owner} — quality and access.
+  \item \textbf{Risk owner} — governance and compliance.
+  \item \textbf{User group} — adoption and feedback.
+\end{itemize}
+
+\section{Choosing the model}
+
+\begin{itemize}
+  \item \textbf{Early maturity} $\rightarrow$ centralized: control and
+        standards come first.
+  \item \textbf{Diversified enterprises} $\rightarrow$ federated or hybrid:
+        domain ownership matters more than standardization.
+  \item \textbf{Strategic AI products} $\rightarrow$ product-based: continuity
+        beats project completion.
+  \item \textbf{Advanced maturity} $\rightarrow$ agent-orchestrated: autonomy
+        requires an orchestration layer with human escalation, audit logs and
+        permission boundaries.
+\end{itemize}
